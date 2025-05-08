@@ -1,5 +1,3 @@
 # About this project
 
-[What is this project about? Give background info & the purpose of this project.]
-
-Here is the [link](www.example.com) to the project's directory on Box, where project data are stored.
+This repository contains analysis code for the correlation plots shown in HIP's announcement blogpost of the [county-level ERA assistance dataset](https://housinginitiative.github.io/era-county-level-dataset-public/).

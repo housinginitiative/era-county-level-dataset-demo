@@ -134,22 +134,22 @@ joined <- era %>%
 # Plots: race and ethnicity --------------------------------------------------------------------
 
 plot_race_dollar <- joined %>% 
-  ggplot(aes(y = sum_assistance_amount_logged, 
+  ggplot(aes(y = sum_assistance_amount, 
              x = percent_renter_households_of_color_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_dollar()(10^.)) +
+  scale_y_log10(labels = label_dollar(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Amount paid in assistance (logged)")
 
 plot_race_dollar
 
 plot_race_addresses <- joined %>% 
-  ggplot(aes(y = unique_assisted_addresses_logged, 
+  ggplot(aes(y = unique_assisted_addresses, 
              x = percent_renter_households_of_color_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_comma()(10^.)) +
+  scale_y_log10(labels = label_comma(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Unique addresses assisted (logged)")
 
@@ -164,22 +164,22 @@ ggpubr::ggarrange(plot_race_dollar, NULL, plot_race_addresses,
 # Plots: severe cost burden --------------------------------------------------------------------
 
 plot_burden_dollar <- joined %>% 
-  ggplot(aes(y = sum_assistance_amount_logged, 
+  ggplot(aes(y = sum_assistance_amount, 
              x = percent_renter_severe_cost_burden_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_dollar()(10^.)) +
+  scale_y_log10(labels = label_dollar(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Amount paid in assistance (logged)")
 
 plot_burden_dollar
 
 plot_burden_addresses <- joined %>% 
-  ggplot(aes(y = unique_assisted_addresses_logged, 
+  ggplot(aes(y = unique_assisted_addresses, 
              x = percent_renter_severe_cost_burden_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_comma()(10^.)) +
+  scale_y_log10(labels = label_comma(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Unique addresses assisted (logged)")
 
@@ -194,22 +194,22 @@ ggpubr::ggarrange(plot_burden_dollar, NULL, plot_burden_addresses,
 # Plots: population density -------------------------------------------------------------------
 
 plot_density_dollar <- joined %>% 
-  ggplot(aes(y = sum_assistance_amount_logged, 
+  ggplot(aes(y = sum_assistance_amount, 
              x = population_density_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_dollar()(10^.)) +
+  scale_y_log10(labels = label_dollar(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Amount paid in assistance (logged)")
 
 plot_density_dollar
 
 plot_density_addresses <- joined %>% 
-  ggplot(aes(y = unique_assisted_addresses_logged, 
+  ggplot(aes(y = unique_assisted_addresses, 
              x = population_density_decile_label)) +
   geom_violin(draw_quantiles = 0.5, fill = "#1f2859ff", color = "white") +
   scale_x_discrete(labels = ~ str_wrap(., 1)) +
-  scale_y_continuous(labels = ~ label_comma()(10^.)) +
+  scale_y_log10(labels = label_comma(), guide = "axis_logticks") +
   labs(x = NULL,
        y = "Unique addresses assisted (logged)")
 
